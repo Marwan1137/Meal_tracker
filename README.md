@@ -107,7 +107,7 @@ lib/
 🛠 Support
 For issues or questions:
 - Open an issue on GitHub
-- Contact: your.email@example.com
+- Contact: Marwan.hakil79@gmail.com
 
 📱 Responsiveness Approach
 - Flexible layouts using Column and Expanded widgets
