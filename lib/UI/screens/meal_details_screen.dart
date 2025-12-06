@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import '../../data/model/meal_api_model.dart';
 
@@ -155,7 +157,7 @@ class MealDetailsScreen extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    '${measure ?? ''} ${ingredient}',
+                    '${measure ?? ''} $ingredient',
                     style: const TextStyle(fontSize: 16),
                   ),
                 ),

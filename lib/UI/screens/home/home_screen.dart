@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_tracker/UI/cubit/cubit_meal.dart';
@@ -29,9 +31,9 @@ class HomeScreen extends StatelessWidget {
           }
 
           if (state.status == UIStatus.success) {
-            print('Number of meals: ${state.meals.length}'); // Debug print
+            // Debug print
             for (var meal in state.meals) {
-              print('Meal ${meal.id} image: ${meal.imageUrl}'); // Debug print
+              // Debug print
             }
 
             // Calculate total calories

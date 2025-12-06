@@ -185,7 +185,7 @@ class _AddMealScreenState extends State<AddMealScreen> {
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<MealType>(
-                value: _selectedType,
+                initialValue: _selectedType,
                 decoration: const InputDecoration(
                   labelText: 'Meal Type',
                   border: OutlineInputBorder(),
@@ -306,7 +306,6 @@ class _AddMealScreenState extends State<AddMealScreen> {
   void _saveMeal() async {
     if (_formKey.currentState!.validate()) {
       String? finalImagePath = _selectedImagePath;
-      print('AddMealScreen - Initial image path: $finalImagePath');
 
       if (finalImagePath != null && !finalImagePath.startsWith('http')) {
         try {
@@ -315,27 +314,16 @@ class _AddMealScreenState extends State<AddMealScreen> {
           final directory = Directory('${appDir.path}/meal_images');
           final String newPath = '${directory.path}/$fileName';
 
-          print('AddMealScreen - Saving to directory: ${directory.path}');
-          print('AddMealScreen - New image path will be: $newPath');
-
           if (!directory.existsSync()) {
             directory.createSync(recursive: true);
-            print('AddMealScreen - Created directory: ${directory.path}');
           }
 
           final File originalFile = File(finalImagePath);
           if (await originalFile.exists()) {
             final File newFile = await originalFile.copy(newPath);
             finalImagePath = newFile.path;
-            print(
-                'AddMealScreen - Image saved successfully at: $finalImagePath');
-            print('AddMealScreen - New file exists: ${newFile.existsSync()}');
-          } else {
-            print(
-                'AddMealScreen - Original file does not exist: $finalImagePath');
-          }
+          } else {}
         } catch (e) {
-          print('Error saving image: $e');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Failed to save image: $e')),
           );
